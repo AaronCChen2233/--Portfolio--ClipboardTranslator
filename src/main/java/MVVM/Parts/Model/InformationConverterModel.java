@@ -103,7 +103,7 @@ public class InformationConverterModel {
 
             vocabularyInfoViewModel.reloadInfo(word, definitionInEnglish, definitionInChinese, example, imgSrcList, speechMP3URL);
         } else {
-            vocabularyInfoViewModel.showNotFound();
+            vocabularyInfoViewModel.showNotFound(word);
         }
     }
 }

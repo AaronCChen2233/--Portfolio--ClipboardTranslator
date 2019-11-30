@@ -108,9 +108,9 @@ public class VocabularyInfoViewModel implements IMVVM_ViewModel {
         imgSrcList = ListTool.subList(imgSrcList, 30);
     }
 
-    public void showNotFound() {
+    public void showNotFound(String word) {
         isNotFound = true;
-        vocabulary = "404 Not found!";
+        vocabulary = word + " 404 Not found!";
         vocabularyInfoView.windowPopUp(this);
     }
 

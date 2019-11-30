@@ -50,8 +50,11 @@ public class DetectClipboardModel implements ClipboardOwner, IMVVM_Model {
                     /*If newString have space don't search because now only support single vocabulary*/
                     newString = newString.trim();
 
-                    /*If coped vocabulary is Camel-Case don't search(special rule for software engineer haha)*/
+                    /*If coped vocabulary is Camel-Case or StudlyCaps don't search(special rule for software engineer haha)*/
                     if(StringTools.checkIsCamelCase(newString)){
+                        return;
+                    }
+                    if(StringTools.checkIsStudlyCaps(newString)){
                         return;
                     }
 

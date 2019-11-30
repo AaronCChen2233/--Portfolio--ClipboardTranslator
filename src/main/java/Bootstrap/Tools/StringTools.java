@@ -5,4 +5,11 @@ public class StringTools {
         String camelCasePattern = "([a-z]+[A-Z]+\\w+)+";
         return checkedString.matches(camelCasePattern);
     }
+
+    public static boolean checkIsStudlyCaps(String checkedString){
+        String camelCasePattern = "([A-Z]+[a-z]+[A-Z]+\\w+)+";
+        return checkedString.matches(camelCasePattern);
+    }
+
+
 }
