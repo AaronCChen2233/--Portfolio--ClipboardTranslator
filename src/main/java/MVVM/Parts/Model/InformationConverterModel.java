@@ -29,33 +29,36 @@ public class InformationConverterModel {
         String[] Temp;
 
         /*definitionInChinese Part*/
-        Document infoDocument = GetTranslateInfoModel.getVocDocument(word);
-        String info;
-        Element element = infoDocument.getElementById(GetConfigProperty.vDclass);
-        /*if element is null info is "" */
-        info = element != null ? element.outerHtml() : "";
-        isVocFound = !info.equals("");
+        isVocFound = false;
+        /**Now voa is not working I will fix later*/
 
-        if (isVocFound) {
-            Temp = info.split("<h3>([^<]*)</h3>");
-            for (int i = 0; i < Temp.length; i++) {
-                Temp[i] = Temp[i].replace("\n", "");
-                Temp[i] = Temp[i].replace("  ", " ");
-                Temp[i] = Temp[i].replace("<br>", "\n");
-                Temp[i] = Temp[i].replaceAll("<.*?>", "");
-            }
-            Temp[1] = Temp[1].replaceAll("\n \n", "\n");
-            definitionInChinese = Temp[1].split("\n\n");
-
-
-            /*example Part*/
-            /*VoiceTube may not have example*/
-            if (Temp.length == 3) {
-                tempExample = new ArrayList<String>(Arrays.asList((Temp[2].split("\n \n"))));
-            }
-
-            speechMP3URL = infoDocument.selectFirst(GetConfigProperty.Vau).attr("abs:href");
-        }
+//        Document infoDocument = GetTranslateInfoModel.getVocDocument(word);
+//        String info;
+//        Element element = infoDocument.getElementById(GetConfigProperty.vDclass);
+//        /*if element is null info is "" */
+//        info = element != null ? element.outerHtml() : "";
+//        isVocFound = !info.equals("");
+//
+//        if (isVocFound) {
+//            Temp = info.split("<h3>([^<]*)</h3>");
+//            for (int i = 0; i < Temp.length; i++) {
+//                Temp[i] = Temp[i].replace("\n", "");
+//                Temp[i] = Temp[i].replace("  ", " ");
+//                Temp[i] = Temp[i].replace("<br>", "\n");
+//                Temp[i] = Temp[i].replaceAll("<.*?>", "");
+//            }
+//            Temp[1] = Temp[1].replaceAll("\n \n", "\n");
+//            definitionInChinese = Temp[1].split("\n\n");
+//
+//
+//            /*example Part*/
+//            /*VoiceTube may not have example*/
+//            if (Temp.length == 3) {
+//                tempExample = new ArrayList<String>(Arrays.asList((Temp[2].split("\n \n"))));
+//            }
+//
+//            speechMP3URL = infoDocument.selectFirst(GetConfigProperty.Vau).attr("abs:href");
+//        }
 
         /*definitionInEnglish Part*/
         Document tempDocument = GetTranslateInfoModel.getOxfordDocument(word);
